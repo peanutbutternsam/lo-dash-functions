@@ -1,7 +1,7 @@
 LO-Dash
 /***************************************************
 *******************Lo-Dash Functions****************
-****************************************************
+****************************************************/
 
 
 
@@ -291,8 +291,55 @@ function pull(array, value){
 	return results;
 }
 
+//**************************LAST*************************
 //*******************************************************
 
+//returns last x values in the array that pass the test provided in the applied function
+function last(array, fromRight, callback) {
+	results = [];
+		for( var i = array.length - 1; i >= fromRight - 1; i-- ){
+			if( callback(array[i]) ){
+				results.push( array[i] );
+			}
+		}
+			return results.reverse();
+}
+
+//***********************REMOVE**************************
+//*******************************************************
+
+/*removes all values that return 'truey' then returns a
+new array with those values*/
+
+function remove (array, callback){
+	results = [];
+	for(var i = 0; i < array.length; i++){
+		if(callback(array[i])){
+			results.push(array[i]);
+		}
+	}
+	return results;
+}
+
+//***********************uniq****************************
+//*******************************************************
+
+//removes duplicate values so only one of each appears in new array
+//does not work if there are more than 3 of one value
+function uniq (array) {
+	results = [];
+	sortedArr = array.sort();
+
+	for(var i = 0; i < array.length; i++){
+		if(sortedArr[i+1] == sortedArr[i]){
+			results.push(sortedArr[i]);
+		}
+	}
+	return results;
+}
+
+//*******************************************************
+//*******************************************************
 
 
 
