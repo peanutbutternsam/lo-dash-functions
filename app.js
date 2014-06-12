@@ -338,13 +338,33 @@ function uniq (array) {
 	return results;
 }
 
+//********************lastIndexOf************************
 //*******************************************************
+
+//Returns the index at which the last instance of a specified value occurs
+function lastIndexOf(array, value){
+	for( var i = array.length -1; i > 0; i-- ){
+		if(array[i] == value) {
+			return i;
+		}
+		else
+			return -1;
+	}
+}
+
+//********************without****************************
 //*******************************************************
 
-
-
-
-
+//creates a new array without specified value(s)
+function without(array, value1, value2){
+	results = [];
+	for(var i = 0; i < array.length; i++){
+		if(array[i] !== value1 && array[i] !== value2){
+			results.push(array[i]);
+		}
+	}
+	return results;
+}
 
 
 
